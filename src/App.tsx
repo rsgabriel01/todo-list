@@ -1,5 +1,15 @@
-function App() {
-  return <>Estrutura Inicial</>
-}
+import { Header } from './Header'
 
-export default App
+import './global.css'
+import './App.module.css'
+
+export function App() {
+  return (
+    <div>
+      <Header />
+      <main>
+        <input type="text" placeholder="Adicione sua tarefa" />
+      </main>
+    </div>
+  )
+}

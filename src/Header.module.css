@@ -1,0 +1,28 @@
+.header {
+  /* width: 100vw; */
+  height: 12.5rem;
+  background: var(--gray-700);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.25rem 0;
+}
+
+.header img {
+  height: 2.5rem;
+}
+
+.header span {
+  font-weight: 900;
+  font-size: 3rem;
+  color: var(--green-500);
+}
+
+.header span:nth-child(2) {
+  padding-left: 0.75rem;
+  color: var(--blue);
+}
+
+.header span:nth-child(3) {
+  color: var(--purple-dark);
+}
