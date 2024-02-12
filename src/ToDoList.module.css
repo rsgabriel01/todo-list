@@ -1,8 +1,9 @@
 main {
+  max-width: 740px;
+
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* justify-content: center; */
 
   position: relative;
   top: -30px;
@@ -27,6 +28,25 @@ form button {
   width: 90px;
 }
 
-.toDoList {
+.toDo {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
   border: solid 1px green;
+
+  margin-top: 64px;
+}
+
+.toDo header {
+  display: flex;
+  justify-content: space-between;
+
+  margin-bottom: 24px;
+}
+
+.toDo ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }

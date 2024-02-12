@@ -1,5 +1,5 @@
 .header {
-  /* width: 100vw; */
+  width: 100vw;
   height: 12.5rem;
   background: var(--gray-700);
   display: flex;

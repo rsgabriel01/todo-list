@@ -8,7 +8,15 @@ export function ToDoList() {
 
         <button type="submit">Criar</button>
       </form>
-      <div className={styles.toDoList}>opasasass</div>
+      <div className={styles.toDo}>
+        <header>
+          <span>Tarefas criadas</span>
+          <span>Concluídas</span>
+        </header>
+        <ul className={styles.toDoList}>
+          <li>Tarefa 1</li>
+        </ul>
+      </div>
     </main>
   )
 }
