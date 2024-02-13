@@ -8,7 +8,7 @@ main {
   position: relative;
   top: -30px;
 
-  border: solid 1px red;
+  /* border: solid 1px red; */
 }
 
 form {
@@ -21,11 +21,39 @@ form {
 form input {
   height: 54px;
   width: 640px;
+
+  border: 0;
+  border-radius: 8px;
+
+  padding: 0px 20px 0px 20px;
+
+  border: solid 1px var(--gray-700);
+
+  background: var(--gray-500);
+
+  color: var(--gray-100);
 }
 
 form button {
   height: 54px;
   width: 90px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  background: var(--blue-dark);
+
+  color: var(--gray-100);
+  font-weight: 700;
+
+  border: 0;
+  border-radius: 8px;
+
+  line-height: 0;
+
+  cursor: pointer;
 }
 
 .toDo {
@@ -33,7 +61,7 @@ form button {
 
   display: flex;
   flex-direction: column;
-  border: solid 1px green;
+  /* border: solid 1px green; */
 
   margin-top: 64px;
 }

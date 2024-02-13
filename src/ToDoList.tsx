@@ -1,5 +1,5 @@
 import styles from './ToDoList.module.css'
-import { ClipboardText } from 'phosphor-react'
+import { GoCheckCircle, GoCircle, GoPlusCircle, GoTrash } from 'react-icons/go'
 
 export function ToDoList() {
   return (
@@ -7,7 +7,10 @@ export function ToDoList() {
       <form>
         <input type="text" placeholder="Adicione uma nova tarefa" />
 
-        <button type="submit">Criar</button>
+        <button type="submit">
+          Criar
+          <GoPlusCircle size={20} />
+        </button>
       </form>
       <div className={styles.toDo}>
         <header>
@@ -15,16 +18,23 @@ export function ToDoList() {
           <span>Concluídas</span>
         </header>
 
-        <div
-          className={`${styles.toDoListEmptySection} ${styles.toDoListEmptySectionHide}`}
-        >
-          <ClipboardText size={56} />
+        {/* <div className={styles.toDoListEmptySection}>
+          <MdFormatListBulletedAdd size={58} />
           <strong>Você ainda não tem tarefas cadastradas</strong>
           <p>Crie tarefas e organize seus itens a fazer</p>
-        </div>
+        </div> */}
 
-        <ul className={`${styles.toDoList} ${styles.toDoListHide}`}>
-          <li>Tarefa 1</li>
+        <ul className={styles.toDoList}>
+          <li>
+            <button>
+              <GoCheckCircle />
+              <GoCircle />
+            </button>
+            Tarefa
+            <button>
+              <GoTrash />
+            </button>
+          </li>
         </ul>
       </div>
     </main>
