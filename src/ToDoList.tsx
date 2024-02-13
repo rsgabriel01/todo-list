@@ -1,4 +1,5 @@
 import styles from './ToDoList.module.css'
+import { ClipboardText } from 'phosphor-react'
 
 export function ToDoList() {
   return (
@@ -13,7 +14,16 @@ export function ToDoList() {
           <span>Tarefas criadas</span>
           <span>Concluídas</span>
         </header>
-        <ul className={styles.toDoList}>
+
+        <div
+          className={`${styles.toDoListEmptySection} ${styles.toDoListEmptySectionHide}`}
+        >
+          <ClipboardText size={56} />
+          <strong>Você ainda não tem tarefas cadastradas</strong>
+          <p>Crie tarefas e organize seus itens a fazer</p>
+        </div>
+
+        <ul className={`${styles.toDoList} ${styles.toDoListHide}`}>
           <li>Tarefa 1</li>
         </ul>
       </div>
