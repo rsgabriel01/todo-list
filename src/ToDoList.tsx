@@ -6,8 +6,45 @@ import {
   GoPlusCircle,
   GoTrash
 } from 'react-icons/go'
+import { useState } from 'react'
+
+interface taskType {
+  id: number
+  text: string
+  done: boolean
+}
+
+// interface toDoListProps {
+//   tasks: taskType[]
+// }
+
+const tasksJson: taskType[] = [
+  {
+    id: 1,
+    text: 'Tarefa 1: Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquam beatae, dolor voluptate ut, tempora non quia aut fugit rerum hic ipsa Soluta, reprehenderit culpa? Excepturi aliquam porro obcaecati similique doloribus?',
+    done: true
+  },
+  {
+    id: 2,
+    text: 'Tarefa 2: Lorem, ipsum dolor sit amet consectetur adipisicing elit.',
+    done: false
+  }
+]
 
 export function ToDoList() {
+  const [tasks, setTasks] = useState(tasksJson)
+
+  function makeCompletedTasksNumberHumanized() {
+    const numberOfTasksDone = tasks.reduce((counter, task) => {
+      if (task.done) counter++
+      return counter
+    }, 0)
+
+    const tasksLength = tasks.length
+
+    return `${numberOfTasksDone} de ${tasksLength}`
+  }
+
   return (
     <main>
       <form>
@@ -22,157 +59,50 @@ export function ToDoList() {
         <header>
           <section className={styles.createdTasks}>
             <span>Tarefas criadas</span>
-            <span className={styles.createdTasksNumber}>
-              {false ? '0' : '9'}
-            </span>
+            <span className={styles.createdTasksNumber}>{tasks.length}</span>
           </section>
           <section className={styles.completedTasks}>
             <span>Concluídas</span>
             <span className={styles.completedTasksNumberHumanized}>
-              {false ? '0' : '3 de 9'}
+              {tasks.length === 0
+                ? '0'
+                : `${makeCompletedTasksNumberHumanized()}`}
             </span>
           </section>
         </header>
-        {false ? (
+        {tasks.length > 0 ? (
+          <ul className={styles.toDoList}>
+            {tasks.map(tasksIterator => (
+              <li
+                key={tasksIterator.id}
+                className={tasksIterator.done ? styles.itemChecked : ''}
+              >
+                <section className={styles.itemCheckAndTextTask}>
+                  <button className={styles.taskButtonCheck}>
+                    {tasksIterator.done ? (
+                      <GoCheckCircleFill
+                        size={20}
+                        className={styles.taskUnchecked}
+                      />
+                    ) : (
+                      <GoCircle size={20} className={styles.taskUnchecked} />
+                    )}
+                  </button>
+                  {tasksIterator.text}
+                </section>
+
+                <button className={styles.taskButtonTrash}>
+                  <GoTrash size={20} className={styles.taskTrash} />
+                </button>
+              </li>
+            ))}
+          </ul>
+        ) : (
           <div className={styles.toDoListEmptySection}>
             <MdFormatListBulletedAdd size={58} />
             <strong>Você ainda não tem tarefas cadastradas</strong>
             <p>Crie tarefas e organize seus itens a fazer</p>
           </div>
-        ) : (
-          <ul className={styles.toDoList}>
-            <li>
-              <section className={styles.itemCheckAndTextTask}>
-                <button className={styles.taskButtonCheck}>
-                  <GoCircle size={24} className={styles.taskUnchecked} />
-                </button>
-                Tarefa 1: Lorem, ipsum dolor sit amet consectetur adipisicing
-                elit. Aliquam beatae, dolor voluptate ut, tempora non quia aut
-                fugit rerum hic ipsa. Soluta, reprehenderit culpa? Excepturi
-                aliquam porro obcaecati similique doloribus?
-              </section>
-
-              <button className={styles.taskButtonTrash}>
-                <GoTrash size={24} className={styles.taskTrash} />
-              </button>
-            </li>
-
-            <li className={styles.itemChecked}>
-              <section className={styles.itemCheckAndTextTask}>
-                <button className={styles.taskButtonCheck}>
-                  <GoCheckCircleFill size={24} className={styles.taskChecked} />
-                </button>
-                Tarefa 2: Lorem, ipsum dolor sit amet consectetur adipisicing
-                elit.
-              </section>
-
-              <button className={styles.taskButtonTrash}>
-                <GoTrash size={24} className={styles.taskTrash} />
-              </button>
-            </li>
-
-            <li>
-              <section className={styles.itemCheckAndTextTask}>
-                <button className={styles.taskButtonCheck}>
-                  <GoCircle size={24} className={styles.taskUnchecked} />
-                </button>
-                Tarefa 3: Lorem, ipsum dolor sit amet consectetur adipisicing
-                elit. Iusto magnam accusantium esse doloribus nemo nostrum rem.
-              </section>
-
-              <button className={styles.taskButtonTrash}>
-                <GoTrash size={24} className={styles.taskTrash} />
-              </button>
-            </li>
-
-            <li>
-              <section className={styles.itemCheckAndTextTask}>
-                <button className={styles.taskButtonCheck}>
-                  <GoCircle size={24} className={styles.taskUnchecked} />
-                </button>
-                Tarefa 4: Lorem, ipsum dolor sit amet consectetur adipisicing
-                elit. Aliquam beatae, dolor voluptate ut, tempora non quia aut
-                fugit rerum hic ipsa. Soluta, reprehenderit culpa? Excepturi
-                aliquam porro obcaecati similique doloribus?
-              </section>
-
-              <button className={styles.taskButtonTrash}>
-                <GoTrash size={24} className={styles.taskTrash} />
-              </button>
-            </li>
-
-            <li className={styles.itemChecked}>
-              <section className={styles.itemCheckAndTextTask}>
-                <button className={styles.taskButtonCheck}>
-                  <GoCheckCircleFill size={24} className={styles.taskChecked} />
-                </button>
-                Tarefa 5: Lorem, ipsum dolor sit amet consectetur adipisicing
-                elit.
-              </section>
-
-              <button className={styles.taskButtonTrash}>
-                <GoTrash size={24} className={styles.taskTrash} />
-              </button>
-            </li>
-
-            <li>
-              <section className={styles.itemCheckAndTextTask}>
-                <button className={styles.taskButtonCheck}>
-                  <GoCircle size={24} className={styles.taskUnchecked} />
-                </button>
-                Tarefa 6: Lorem, ipsum dolor sit amet consectetur adipisicing
-                elit. Iusto magnam accusantium esse doloribus nemo nostrum rem.
-              </section>
-
-              <button className={styles.taskButtonTrash}>
-                <GoTrash size={24} className={styles.taskTrash} />
-              </button>
-            </li>
-
-            <li>
-              <section className={styles.itemCheckAndTextTask}>
-                <button className={styles.taskButtonCheck}>
-                  <GoCircle size={24} className={styles.taskUnchecked} />
-                </button>
-                Tarefa 7: Lorem, ipsum dolor sit amet consectetur adipisicing
-                elit. Aliquam beatae, dolor voluptate ut, tempora non quia aut
-                fugit rerum hic ipsa. Soluta, reprehenderit culpa? Excepturi
-                aliquam porro obcaecati similique doloribus?
-              </section>
-
-              <button className={styles.taskButtonTrash}>
-                <GoTrash size={24} className={styles.taskTrash} />
-              </button>
-            </li>
-
-            <li className={styles.itemChecked}>
-              <section className={styles.itemCheckAndTextTask}>
-                <button className={styles.taskButtonCheck}>
-                  <GoCheckCircleFill size={24} className={styles.taskChecked} />
-                </button>
-                Tarefa 8: Lorem, ipsum dolor sit amet consectetur adipisicing
-                elit.
-              </section>
-
-              <button className={styles.taskButtonTrash}>
-                <GoTrash size={24} className={styles.taskTrash} />
-              </button>
-            </li>
-
-            <li>
-              <section className={styles.itemCheckAndTextTask}>
-                <button className={styles.taskButtonCheck}>
-                  <GoCircle size={24} className={styles.taskUnchecked} />
-                </button>
-                Tarefa 9: Lorem, ipsum dolor sit amet consectetur adipisicing
-                elit. Iusto magnam accusantium esse doloribus nemo nostrum rem.
-              </section>
-
-              <button className={styles.taskButtonTrash}>
-                <GoTrash size={24} className={styles.taskTrash} />
-              </button>
-            </li>
-          </ul>
         )}
       </div>
     </main>
