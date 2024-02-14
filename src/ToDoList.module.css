@@ -178,6 +178,10 @@ form button:hover {
   cursor: pointer;
 }
 
+.itemChecked {
+  text-decoration: line-through;
+}
+
 .itemCheckAndTextTask {
   display: flex;
   align-items: center;

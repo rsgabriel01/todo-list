@@ -57,7 +57,7 @@ export function ToDoList() {
               </button>
             </li>
 
-            <li>
+            <li className={styles.itemChecked}>
               <section className={styles.itemCheckAndTextTask}>
                 <button className={styles.taskButtonCheck}>
                   <GoCheckCircleFill size={24} className={styles.taskChecked} />
@@ -101,7 +101,7 @@ export function ToDoList() {
               </button>
             </li>
 
-            <li>
+            <li className={styles.itemChecked}>
               <section className={styles.itemCheckAndTextTask}>
                 <button className={styles.taskButtonCheck}>
                   <GoCheckCircleFill size={24} className={styles.taskChecked} />
@@ -145,7 +145,7 @@ export function ToDoList() {
               </button>
             </li>
 
-            <li>
+            <li className={styles.itemChecked}>
               <section className={styles.itemCheckAndTextTask}>
                 <button className={styles.taskButtonCheck}>
                   <GoCheckCircleFill size={24} className={styles.taskChecked} />
