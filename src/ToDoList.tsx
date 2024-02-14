@@ -14,8 +14,14 @@ export function ToDoList() {
       </form>
       <div className={styles.toDo}>
         <header>
-          <span>Tarefas criadas</span>
-          <span>Concluídas</span>
+          <section className={styles.createdTasks}>
+            <span>Tarefas criadas</span>
+            <span className={styles.createdTasksNumber}>5</span>
+          </section>
+          <section className={styles.completedTasks}>
+            <span>Concluídas</span>
+            <span className={styles.completedTasksNumberHumanized}>2 de 5</span>
+          </section>
         </header>
 
         {/* <div className={styles.toDoListEmptySection}>
@@ -25,6 +31,17 @@ export function ToDoList() {
         </div> */}
 
         <ul className={styles.toDoList}>
+          <li>
+            <button>
+              <GoCheckCircle />
+              <GoCircle />
+            </button>
+            Tarefa
+            <button>
+              <GoTrash />
+            </button>
+          </li>
+
           <li>
             <button>
               <GoCheckCircle />

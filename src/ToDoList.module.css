@@ -1,9 +1,9 @@
 main {
-  max-width: 740px;
-
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  max-width: 740px;
 
   position: relative;
   top: -30px;
@@ -19,15 +19,13 @@ form {
 }
 
 form input {
-  height: 54px;
+  height: 52px;
   width: 640px;
 
-  border: 0;
-  border-radius: 8px;
-
-  padding: 0px 20px 0px 20px;
+  padding: 0px 16px 0px 16px;
 
   border: solid 1px var(--gray-700);
+  border-radius: 8px;
 
   background: var(--gray-500);
 
@@ -35,22 +33,23 @@ form input {
 }
 
 form button {
-  height: 54px;
-  width: 90px;
-
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
 
-  background: var(--blue-dark);
+  height: 52px;
+  width: 100px;
 
-  color: var(--gray-100);
-  font-weight: 700;
+  /* padding: 16px; */
 
   border: 0;
   border-radius: 8px;
 
+  background: var(--blue-dark);
+
+  color: var(--gray-100);
+  font-weight: 700;
   line-height: 0;
 
   cursor: pointer;
@@ -73,6 +72,58 @@ form button {
   margin-bottom: 24px;
 }
 
+.createdTasks {
+  display: flex;
+  gap: 8px;
+
+  color: var(--blue);
+
+  font-weight: 700;
+}
+
+.createdTasksNumber {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 24px;
+  height: 20px;
+
+  border-radius: 999px;
+
+  background: var(--gray-400);
+
+  color: var(--gray-200);
+
+  font-weight: 700;
+}
+
+.completedTasks {
+  display: flex;
+  gap: 8px;
+
+  color: var(--purple);
+
+  font-weight: 700;
+}
+
+.completedTasksNumberHumanized {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 68px;
+  height: 20px;
+
+  border-radius: 999px;
+
+  background: var(--gray-400);
+
+  color: var(--gray-200);
+
+  font-weight: 700;
+}
+
 .toDo .toDoListEmptySection {
   display: flex;
   flex-direction: column;
@@ -92,4 +143,8 @@ form button {
   list-style: none;
   padding: 0;
   margin: 0;
+}
+
+.toDo ul li {
+  display: flex;
 }
