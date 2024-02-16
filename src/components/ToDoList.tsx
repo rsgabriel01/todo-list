@@ -6,7 +6,7 @@ import {
   GoPlusCircle,
   GoTrash
 } from 'react-icons/go'
-import { useState } from 'react'
+import { ChangeEvent, FormEvent, useState } from 'react'
 
 interface taskType {
   id: number
@@ -34,6 +34,8 @@ const tasksJson: taskType[] = [
 export function ToDoList() {
   const [tasks, setTasks] = useState(tasksJson)
 
+  const [newTaskText, setNewTaskText] = useState('')
+
   function makeCompletedTasksNumberHumanized() {
     const numberOfTasksDone = tasks.reduce((counter, task) => {
       if (task.done) counter++
@@ -45,10 +47,44 @@ export function ToDoList() {
     return `${numberOfTasksDone} de ${tasksLength}`
   }
 
+  function handleCreateNewTask(event: FormEvent) {
+    event.preventDefault()
+
+    const tasksSortedAscById = tasks.sort(function (taskA, taskB) {
+      return taskA.id - taskB.id
+    })
+
+    const lastElementTasksSortedAscById =
+      tasksSortedAscById[tasksSortedAscById.length - 1]
+
+    const newTaskId: number = lastElementTasksSortedAscById.id + 1
+
+    const newTasksObject: taskType = {
+      id: newTaskId,
+      text: newTaskText,
+      done: false
+    }
+
+    setTasks([...tasks, newTasksObject])
+
+    setNewTaskText('')
+  }
+
+  function handleNewTaskTextChange(event: ChangeEvent<HTMLInputElement>) {
+    setNewTaskText(event.target.value)
+  }
+
   return (
     <main>
-      <form>
-        <input type="text" placeholder="Adicione uma nova tarefa" />
+      <form onSubmit={handleCreateNewTask}>
+        <input
+          type="text"
+          placeholder="Adicione uma nova tarefa"
+          name="taskText"
+          value={newTaskText}
+          onChange={handleNewTaskTextChange}
+          required
+        />
 
         <button type="submit">
           Criar

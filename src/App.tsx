@@ -1,5 +1,5 @@
-import { Header } from './Header'
-import { ToDoList } from './ToDoList'
+import { Header } from './components/Header'
+import { ToDoList } from './components/ToDoList'
 
 import './global.css'
 import styles from './App.module.css'
