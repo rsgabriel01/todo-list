@@ -7,15 +7,28 @@ import { taskType } from './ToDoList'
 
 interface TaskItemProps {
   task: taskType
+  onDoneUndoneTask: (task: taskType) => void
 }
 
-export function TaskItem({ task }: TaskItemProps) {
+export function TaskItem({ task, onDoneUndoneTask }: TaskItemProps) {
+  function handleDoneUndoneTask() {
+    onDoneUndoneTask(task)
+  }
+
   return (
     <li className={task.done ? styles.itemChecked : ''}>
       <section className={styles.itemCheckAndTextTask}>
-        <button className={styles.taskButtonCheck}>
+        <button
+          className={styles.taskButtonCheck}
+          onClick={handleDoneUndoneTask}
+          title={`${
+            task.done
+              ? 'Marcar tarefa como não finalizada'
+              : 'Marcar tarefa como finalizada'
+          }`}
+        >
           {task.done ? (
-            <GoCheckCircleFill size={20} className={styles.taskUnchecked} />
+            <GoCheckCircleFill size={20} className={styles.taskChecked} />
           ) : (
             <GoCircle size={20} className={styles.taskUnchecked} />
           )}
@@ -24,7 +37,11 @@ export function TaskItem({ task }: TaskItemProps) {
       </section>
 
       <button className={styles.taskButtonTrash}>
-        <GoTrash size={20} className={styles.taskTrash} />
+        <GoTrash
+          size={20}
+          className={styles.taskTrash}
+          title="Deletar tarefa"
+        />
       </button>
     </li>
   )

@@ -68,10 +68,16 @@ export function ToDoList() {
     setNewTaskText(event.target.value)
   }
 
-  // function handleDoneTask(event: React.MouseEvent<HTMLElement>) {
-  //   console.log(event.target)
-  //   console.log(event.currentTarget)
-  // }
+  function doneUndoneTask(taskToDoneUndone: taskType) {
+    const tasksWithAlteredTaskToDoneOrUndone = tasks.map(task => {
+      if (task === taskToDoneUndone) {
+        task.done = !task.done
+        return task
+      } else return task
+    })
+
+    setTasks(tasksWithAlteredTaskToDoneOrUndone)
+  }
 
   return (
     <main>
@@ -108,7 +114,11 @@ export function ToDoList() {
         {tasks.length > 0 ? (
           <ul className={styles.toDoList}>
             {tasks.map(tasksIterator => (
-              <TaskItem key={tasksIterator.id} task={tasksIterator} />
+              <TaskItem
+                key={tasksIterator.id}
+                task={tasksIterator}
+                onDoneUndoneTask={doneUndoneTask}
+              />
             ))}
           </ul>
         ) : (
