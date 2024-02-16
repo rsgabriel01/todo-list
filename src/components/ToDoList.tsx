@@ -1,22 +1,16 @@
 import { MdFormatListBulletedAdd } from 'react-icons/md'
-import styles from './ToDoList.module.css'
-import {
-  GoCheckCircleFill,
-  GoCircle,
-  GoPlusCircle,
-  GoTrash
-} from 'react-icons/go'
 import { ChangeEvent, FormEvent, useState } from 'react'
 
-interface taskType {
+import { TaskItem } from './TaskItem'
+
+import styles from './ToDoList.module.css'
+import { GoPlusCircle } from 'react-icons/go'
+
+export interface taskType {
   id: number
   text: string
   done: boolean
 }
-
-// interface toDoListProps {
-//   tasks: taskType[]
-// }
 
 const tasksJson: taskType[] = [
   {
@@ -74,6 +68,11 @@ export function ToDoList() {
     setNewTaskText(event.target.value)
   }
 
+  // function handleDoneTask(event: React.MouseEvent<HTMLElement>) {
+  //   console.log(event.target)
+  //   console.log(event.currentTarget)
+  // }
+
   return (
     <main>
       <form onSubmit={handleCreateNewTask}>
@@ -109,28 +108,7 @@ export function ToDoList() {
         {tasks.length > 0 ? (
           <ul className={styles.toDoList}>
             {tasks.map(tasksIterator => (
-              <li
-                key={tasksIterator.id}
-                className={tasksIterator.done ? styles.itemChecked : ''}
-              >
-                <section className={styles.itemCheckAndTextTask}>
-                  <button className={styles.taskButtonCheck}>
-                    {tasksIterator.done ? (
-                      <GoCheckCircleFill
-                        size={20}
-                        className={styles.taskUnchecked}
-                      />
-                    ) : (
-                      <GoCircle size={20} className={styles.taskUnchecked} />
-                    )}
-                  </button>
-                  {tasksIterator.text}
-                </section>
-
-                <button className={styles.taskButtonTrash}>
-                  <GoTrash size={20} className={styles.taskTrash} />
-                </button>
-              </li>
+              <TaskItem key={tasksIterator.id} task={tasksIterator} />
             ))}
           </ul>
         ) : (
