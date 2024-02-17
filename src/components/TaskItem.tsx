@@ -8,11 +8,20 @@ import { taskType } from './ToDoList'
 interface TaskItemProps {
   task: taskType
   onDoneUndoneTask: (task: taskType) => void
+  onDeleteTask: (task: taskType) => void
 }
 
-export function TaskItem({ task, onDoneUndoneTask }: TaskItemProps) {
+export function TaskItem({
+  task,
+  onDoneUndoneTask,
+  onDeleteTask
+}: TaskItemProps) {
   function handleDoneUndoneTask() {
     onDoneUndoneTask(task)
+  }
+
+  function handleDeleteTask() {
+    onDeleteTask(task)
   }
 
   return (
@@ -41,6 +50,7 @@ export function TaskItem({ task, onDoneUndoneTask }: TaskItemProps) {
           size={20}
           className={styles.taskTrash}
           title="Deletar tarefa"
+          onClick={handleDeleteTask}
         />
       </button>
     </li>

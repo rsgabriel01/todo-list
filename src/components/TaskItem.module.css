@@ -55,7 +55,7 @@ li button {
 }
 
 .taskUnchecked:hover:active {
-  color: var(--blue);
+  color: var(--blue-light);
 }
 
 .taskChecked {
@@ -67,7 +67,7 @@ li button {
 }
 
 .taskChecked:hover:active {
-  color: var(--purple-dark);
+  color: var(--purple-light);
 }
 
 .taskButtonTrash {

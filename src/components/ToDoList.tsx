@@ -51,7 +51,8 @@ export function ToDoList() {
     const lastElementTasksSortedAscById =
       tasksSortedAscById[tasksSortedAscById.length - 1]
 
-    const newTaskId: number = lastElementTasksSortedAscById.id + 1
+    const newTaskId: number =
+      tasks.length > 0 ? lastElementTasksSortedAscById.id + 1 : 1
 
     const newTasksObject: taskType = {
       id: newTaskId,
@@ -79,6 +80,23 @@ export function ToDoList() {
     setTasks(tasksWithAlteredTaskToDoneOrUndone)
   }
 
+  function deleteTask(taskToDelete: taskType) {
+    const tasksWithoutTaskToDelete = tasks.filter(task => {
+      return task !== taskToDelete
+    })
+
+    setTasks(tasksWithoutTaskToDelete)
+  }
+
+  function newTaskTextIsEmpty() {
+    if (newTaskText.length === 0 || !newTaskText.trim()) {
+      return true
+    }
+    return false
+  }
+
+  const isNewTaskEmpty = newTaskTextIsEmpty()
+
   return (
     <main>
       <form onSubmit={handleCreateNewTask}>
@@ -86,12 +104,13 @@ export function ToDoList() {
           type="text"
           placeholder="Adicione uma nova tarefa"
           name="taskText"
+          autoComplete="off"
           value={newTaskText}
           onChange={handleNewTaskTextChange}
           required
         />
 
-        <button type="submit">
+        <button type="submit" disabled={isNewTaskEmpty}>
           Criar
           <GoPlusCircle size={20} />
         </button>
@@ -118,6 +137,7 @@ export function ToDoList() {
                 key={tasksIterator.id}
                 task={tasksIterator}
                 onDoneUndoneTask={doneUndoneTask}
+                onDeleteTask={deleteTask}
               />
             ))}
           </ul>
