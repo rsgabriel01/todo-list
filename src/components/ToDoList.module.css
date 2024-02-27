@@ -3,10 +3,10 @@ main {
   flex-direction: column;
   align-items: center;
 
-  max-width: 740px;
+  width: 46.75rem;
 
   position: relative;
-  top: -30px;
+  top: -1.875rem;
 }
 
 form {
@@ -14,17 +14,17 @@ form {
   display: flex;
   justify-content: center;
   align-items: start;
-  gap: 8px;
+  gap: 0.5rem;
 }
 
 form input {
-  height: 52px;
-  width: 640px;
+  height: 3.25rem;
+  width: 40rem;
 
-  padding: 0px 16px 0px 16px;
+  padding: 0 1rem 0 1rem;
 
   border: solid 1px var(--gray-700);
-  border-radius: 8px;
+  border-radius: 0.5rem;
 
   background: var(--gray-500);
 
@@ -35,13 +35,13 @@ form button[type='submit'] {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 0.5rem;
 
-  height: 52px;
-  width: 100px;
+  height: 3.25rem;
+  width: 6.25rem;
 
   border: 0;
-  border-radius: 8px;
+  border-radius: 0.5rem;
 
   background: var(--blue-dark);
 
@@ -76,19 +76,19 @@ form button[type='submit']:disabled {
   flex-direction: column;
   /* border: solid 1px green; */
 
-  margin-top: 64px;
+  margin-top: 4rem;
 }
 
 .toDo header {
   display: flex;
   justify-content: space-between;
 
-  margin-bottom: 24px;
+  margin-bottom: 1.5rem;
 }
 
 .createdTasks {
   display: flex;
-  gap: 8px;
+  gap: 0.5rem;
 
   color: var(--blue);
 
@@ -100,8 +100,8 @@ form button[type='submit']:disabled {
   align-items: center;
   justify-content: center;
 
-  width: 24px;
-  height: 20px;
+  width: 1.5rem;
+  height: 1.25rem;
 
   border-radius: 999px;
 
@@ -114,7 +114,7 @@ form button[type='submit']:disabled {
 
 .completedTasks {
   display: flex;
-  gap: 8px;
+  gap: 0.5rem;
 
   color: var(--purple);
 
@@ -126,8 +126,8 @@ form button[type='submit']:disabled {
   align-items: center;
   justify-content: center;
 
-  width: 68px;
-  height: 20px;
+  width: 4.25rem;
+  height: 1.25rem;
 
   border-radius: 999px;
 
@@ -143,13 +143,13 @@ form button[type='submit']:disabled {
   flex-direction: column;
   align-items: center;
 
-  margin: 64px 24px 64px 24px;
+  margin: 4rem 1.5rem 4rem 1.5rem;
 
-  font-sizwe: 16px;
+  font-size: 1rem;
 }
 
 .toDo .toDoListEmptySection svg {
-  margin-bottom: 16px;
+  margin-bottom: 1rem;
 }
 
 .toDo ul {

@@ -1,21 +1,21 @@
 li {
-  height: 72px;
+  height: 4.5rem;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 24px;
+  gap: 1.5rem;
 
   background: var(--gray-500);
 
   border: solid 1px var(--gray-400);
-  border-radius: 12px;
+  border-radius: 0.75rem;
 
-  padding: 0px 16px;
+  padding: 0 1rem;
 }
 
 li ~ li {
-  margin-top: 12px;
+  margin-top: 0.75rem;
 }
 
 li button {
@@ -34,7 +34,7 @@ li button {
   align-items: center;
   justify-content: flex-start;
 
-  gap: 8px;
+  gap: 0.5rem;
 
   text-align: justify;
   text-justify: inter-word;
@@ -79,7 +79,7 @@ li button {
   justify-content: flex-end;
 
   color: var(--gray-300);
-  border-radius: 4px;
+  border-radius: 0.25rem;
 }
 
 .taskButtonTrash:hover {
