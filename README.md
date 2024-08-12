@@ -1,7 +1,7 @@
 <h1 align="center"> ToDo List </h1>
 
 <p align="center">
-Desafio de conclusão de modulo da certificação Ignite-Rocketseat.
+Desafio de conclusão do cápitulo 1 do modulo Fundamentos da certificação Ignite-Rocketseat.
 </p>
 
 <p align="center">
