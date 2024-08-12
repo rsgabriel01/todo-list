@@ -18,7 +18,7 @@ Desafio de conclusão do cápitulo 1 do modulo Fundamentos da certificação Ign
 <br>
 
 <p align="center">
-  <img alt="grspay" src=".github/readme-image-1.png" width="100%">
+  <img alt="ToDo List" src=".github/readme-image-1.png" width="100%">
 </p>
 
 ## 🚀 Tecnologias
@@ -27,8 +27,8 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 - [ReactJS](https://https://react.dev/)
 - [Typescript](https://www.typescriptlang.org/)
-- CSS Module
 - [Vite](https://vitejs.dev/)
+- CSS Module
 
 ## 💻 Projeto
 
